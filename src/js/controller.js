@@ -5,12 +5,10 @@ import resultsView from './views/resultsView';
 import paginationView from './views/paginationView';
 import bookmarksView from './views/bookmarksView';
 import addRecipeView from './views/addRecipeView';
-import { MODAL_CLOSE_SEC } from './config';
+import { MODAL_CLOSE_SEC, RENDER_FORM_SEC } from './config';
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 import { async } from 'regenerator-runtime/runtime';
-
-// if (module.hot) module.hot.accept();
 
 const controlRecipes = async function () {
   try {
@@ -121,6 +119,11 @@ const controlAddRecipe = async function (newRecipe) {
 
     // Update results view
     resultsView.update(model.getSearchResultsPage());
+
+    // Render form for next recipe
+    setTimeout(function () {
+      addRecipeView.render(model.state.recipe);
+    }, RENDER_FORM_SEC * 1000);
   } catch (err) {
     console.error('💥', err);
     addRecipeView.renderError(err.message);
