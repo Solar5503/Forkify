@@ -108,10 +108,19 @@ const controlAddRecipe = async function (newRecipe) {
     //Render bookmarks
     bookmarksView.render(model.state.bookmarks);
 
+    // Change ID in URL
+    window.history.pushState(null, '', `#${model.state.recipe.id}`);
+
     // Close form window
     setTimeout(function () {
       addRecipeView._toggleWindow();
     }, MODAL_CLOSE_SEC * 1000);
+
+    // Update bookmarks
+    bookmarksView.update(model.state.bookmarks);
+
+    // Update results view
+    resultsView.update(model.getSearchResultsPage());
   } catch (err) {
     console.error('💥', err);
     addRecipeView.renderError(err.message);
