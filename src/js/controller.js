@@ -127,6 +127,11 @@ const controlAddRecipe = async function (newRecipe) {
   } catch (err) {
     console.error('💥', err);
     addRecipeView.renderError(err.message);
+
+    // Render form for next recipe
+    setTimeout(function () {
+      addRecipeView.render(model.state.recipe);
+    }, RENDER_FORM_SEC * 1000);
   }
 };
 

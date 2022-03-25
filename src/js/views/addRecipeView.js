@@ -36,7 +36,6 @@ class AddRecipeView extends View {
       const dataArr = [...new FormData(this)];
       const data = Object.fromEntries(dataArr);
       handler(data);
-      e.target.reset();
     });
   }
 
@@ -47,13 +46,15 @@ class AddRecipeView extends View {
           <label>Title</label>
           <input
             required
+            minlength="3"
             name="title"
             type="text"
-            placeholder="Title must be >= 5 characters long"
+            placeholder="Title must be >= 3 characters long"
           />
           <label>Source URL</label>
           <input
             required
+            minlength="5"
             name="sourceUrl"
             type="text"
             placeholder="URL must be >= 5 characters long"
@@ -61,20 +62,24 @@ class AddRecipeView extends View {
           <label>Image URL</label>
           <input
             required
+            minlength="4"
             name="image"
             type="text"
-            placeholder="URL must be >= 5 characters long"
+            placeholder="URL must be >= 4 characters long"
           />
           <label>Publisher</label>
           <input
             required
+            minlength="4"
             name="publisher"
             type="text"
-            placeholder="Publisher must be >= 5 characters long"
+            placeholder="Publisher must be >= 4 characters long"
           />
           <label>Prep time</label>
           <input
             required
+            min="1"
+            minlength="1"
             name="cookingTime"
             type="number"
             placeholder="Time must be >= 1 character long"
@@ -82,6 +87,8 @@ class AddRecipeView extends View {
           <label>Servings</label>
           <input
             required
+            min="1"
+            minlength="1"
             name="servings"
             type="number"
             placeholder="Servings must be >= 1 character long"
@@ -94,6 +101,7 @@ class AddRecipeView extends View {
           <input
             type="text"
             required
+            minlength="5"
             name="ingredient-1"
             placeholder="Format: 'Quantity,Unit,Description'"
           />
