@@ -20,16 +20,11 @@
   "homepage": "https://github.com/Solar5503/Forkify#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.3.2",
-    "parcel": "^2.3.2",
-    "parcel-plugin-clean-easy": "^1.0.2"
+    "parcel": "^2.3.2"
   },
   "dependencies": {
     "core-js": "^3.21.1",
     "fracty": "^1.0.9",
     "regenerator-runtime": "^0.13.9"
-  },
-  "parcelCleanPaths": [
-    "dist",
-    ".cache"
-  ]
+  }
 }
